@@ -6,12 +6,21 @@ def fib(n):
         
 print fib(8)
 
-def evenfib(n):
-    while n < 34:
-        
-        
+fibs = []
 
-evenfib(10)
+def listfibs():
+    for i in range (1, 34):
+        if fib(i) % 2 == 0:    
+            fibs.append(fib(i))
+        else:
+            fibs == fibs
+    print fibs
+     
+listfibs()
+
+b = sum(fibs)
+
+print b
         
        
         
