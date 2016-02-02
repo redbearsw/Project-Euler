@@ -1,27 +1,26 @@
 fact = [1]
 a = 2
 
-def primefactors(x):
-    while a < 100:
-        if x%a == 0 and x/a != 1:
-            primefactors(x/a)
+def factors(x):
+    for i in range (2, 100):
+        if x%i == 0:
+            fact.append(i)
         else:
-            fact.append(x)
-            a += 1
-            primefactors(x)
+            print "%d is not a factor of %d" %(i, x)
+    print fact
 
+factors(35)
 
+primes = []
 
-print fact
-
-primefactors(10)
-
-
-def primefactors():
-    print fact.pop()
-    while len(fact) != 0:
+def primefactors(x):
+    fact = [factors(x)]
+    while len(fact) > 0:
         for i in range (1,1000):
             if fact.pop()%i == 0:
-                print fact.pop()/i
+                primefactors(fact.pop()/i)
             else:
-                print fact.pop()
+                primes.append(fact.pop())
+    print primes
+
+primefactors(35)
