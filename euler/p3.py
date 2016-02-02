@@ -2,25 +2,27 @@ fact = [1]
 a = 2
 
 def factors(x):
-    for i in range (2, 100):
-        if x%i == 0:
+    for i in range (2, x+1):
+        if x%i == 0 and x/i != 1:
             fact.append(i)
         else:
             print "%d is not a factor of %d" %(i, x)
     print fact
 
-factors(35)
+factors(36)
 
 primes = []
 
+#want to make this function take in a list of factors
 def primefactors(x):
-    fact = [factors(x)]
-    while len(fact) > 0:
-        for i in range (1,1000):
-            if fact.pop()%i == 0:
-                primefactors(fact.pop()/i)
+    for p in fact:
+        for i in range (2,x+1):
+            if p%i == 0 and p/i != 1:
+                primefactors(p/i)
+                print "checking %d now" %p/i
             else:
-                primes.append(fact.pop())
+                primes.append(p)
+                print "appending %d" %p
     print primes
 
-primefactors(35)
+primefactors(36)
