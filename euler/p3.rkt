@@ -1,20 +1,18 @@
 #lang typed/racket
 
-(: prime-facts : Integer -> (Listof Integer))
-;returns largest prime factor
-(define (prime-facts n) (local {
-	(: primes-acc : Integer (Listof Integer) -> (Listof Integer))
-	(define (primes-acc num acc) (cond 
-		[(prime? num) (cond
-			[(= num 1) acc]
-			[(= (modulo n num) 0) 
-				(primes-acc (- num 1) (cons num acc))]
-			[else (primes-acc (- num 1) acc)])
-		[else (primes-acc (- num 1) acc)]))}
-	(primes-acc n '())))
+(require math/number-theory)
 
-(prime-facts 13195)
-(prime-facts 600851475143) 
+(: largest-prime : Real -> Real)
+(define (largest-prime num) (local {
+	(: larg-prime : Real Real -> Real)
+	(define (larg-prime n div) (cond
+		[(= (/ n div) 0) div]
+		[(integer? (/ n div)) (larg-prime (/ n div) div)]
+		[else (larg-prime n (+ 1 div))]))}
+	(larg-prime num 2)))
+
+(largest-prime 12)
+(largest-prime 20)
 	
 
 ;start with num
