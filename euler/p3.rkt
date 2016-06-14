@@ -16,7 +16,7 @@
 	(: prime-facts : Integer Integer (Listof Integer)  -> (Listof Integer))
 	(define (prime-facts n div acc) (cond
 		[(= n div) (cons div acc)]
-		[(and (= (modulo n div) 0) (soph-prime? div)) (prime-facts (ceiling (/ n div)) div (cons div acc))]
+		[(and (= (modulo n div) 0) (soph-prime? div)) (prime-facts (/ n div) div (cons div acc))]
 		[else (prime-facts n (+ div 1) acc)]))}
 	(first (prime-facts num 2 '())))) 
 
