@@ -11,7 +11,7 @@ int sum_sq_diff(int num) {
 int sum_sq_diff_it(int num) {
 	int i; int total = 0;
 	for (i = 1; i <= num; i++)
-		total += ((num * num) * (num - 1));
+		total += ((i * i) * (i - 1));
 	return total;
 }		
 
