@@ -1,7 +1,11 @@
 ones = 3 + 3 + 5 + 4 + 4 + 3 + 5 + 5 + 4
-ten_to_twelve = 3 + 6 + 6
-thirteen_to_nineteen = 4 + 4 + 3 + 3 + 5 + 5 + 4 + (4 * 7)
-tens = ten_to_twelve + thirteen_to_nineteen + (4 * 60) + (3 * 50) + 70 + (8 * ones)
-hundreds = (3 * 1000) + (2 * 1100) + (3 * 1200) + (9 * (ones + tens)) + (3 * 891)
+ten = 3
+eleven = 6
+twelve = 6
+thir_to_nine = 4 + 4 + 3 + 3 + 5 + 4 + 4
+thirteen_to_nineteen = thir_to_nine + (4 * 7)
+twenty = 6
+tens = ten + eleven + twelve + thirteen_to_nineteen + ((thir_to_nine + 14 + twenty) * 10) + (ones * 8) #ten to nineteen + 10 times (each prefix (thirty, forty, etc) + 2 per prefix + "twenty") + ones are suffixes 8 times
+hundreds = (ones * 100) + ((tens + ones) * 9) + (10 * 900) # each ones is prefix to "hundred" 100 times + each number from 0 to 99 follows each of the 9 hundreds + "hundred and" has 10 letters * use it 900 times for numbers from 100 to 999
 
 print hundreds + tens + ones + 11
