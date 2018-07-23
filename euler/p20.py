@@ -1,42 +1,47 @@
 # need to do array-based factorial
+# remainder = 0
+# list with 1 in it
+# list[len] * i
+# reset to answer % 10
+# add remainder
+# all while idx > 0
+# add final remainder
 
-def factorial(num):
-    prod = 1
-    twos = 0
-    fives = 0
+def myMult(list, num):
+    remainder = 0
+    # multiply and carry over
+    for i in range(len(list)):
+        lastIdx = len(list) - 1
+        dig = list[lastIdx - i]
+        dig *= num
+        dig += remainder
+        list[lastIdx - i] = dig % 10
+        remainder = dig / 10
+
+    # dealing with final remainder
+    while (remainder > 9):
+        list.insert(0, remainder % 10)
+        remainder /= 10
+
+    list.insert(0, remainder)
+
+    return list
+
+def myFact(num):
+    answer = [1]
     for i in range(1, num + 1):
-        if (i % 10 != 0):
-            if (i % 5 == 0):
-                fives += 1
-            elif (i % 2 == 0):
-                twos += 1
-            else:
-                prod *= i
-            print(i, ":", prod)
+        answer = myMult(answer, i)
+    return answer
 
-
-    if (twos > fives):
-        print("twos:", twos)
-        for i in range(twos - fives):
-            prod *= 2
-            print(prod)
-    elif (twos < fives):
-        for i in range(fives - twos):
-            prod *= 5
-            print(prod)
-    return prod
-
-def digSum(num):
+def sumList(list):
     sum = 0
-    while num > 9:
-        sum += num % 10
-        num / 10
-    sum += num
+    for dig in list:
+        sum += dig
     return sum
 
 def main():
-    fact = factorial(100)
-    sum = digSum(fact)
+    answer = myFact(100)
+    sum = sumList(answer)
     print(sum)
 
 if __name__ == "__main__":
