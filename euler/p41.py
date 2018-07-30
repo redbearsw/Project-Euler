@@ -28,18 +28,14 @@ def isPandigital(num):
     numString = str(num)
     length = len(numString)
     # list of digits still available
-    availDig = []
-    for i in range(1, length + 1):
-        availDig.append(i)
-
+    usedDig = []
     for char in numString:
-        dig = int(char)
-        if (dig in availDig):
-            availDig.remove(dig)
-        else:
+        if (char in usedDig):
             return False
+        else:
+            usedDig.append(char)
 
-    if not availDig:
+    if len(usedDig) == length:
         return True
     else:
         return False
@@ -62,8 +58,8 @@ def main():
     i = 987654321
     while (i > 0):
         print(i)
-        if isPrime(i):
-            if isPandigital(i):
+        if isPandigital(i):
+            if isPrime(i):
                 print(i)
         i -= 1
 
