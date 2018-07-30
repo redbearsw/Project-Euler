@@ -3,3 +3,5 @@
 # so, must be in the range where the first digit is 1
 # now add 9! + 9! + 8! ... until above 1000
 # etc
+
+# answer: 2783915460
