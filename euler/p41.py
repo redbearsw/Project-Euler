@@ -43,8 +43,6 @@ def isPandigital(num):
 
 # function that checks if a number is prime
 def isPrime(num):
-    if num % 2 == 0:
-        return False
     i = 3
     while (i < math.sqrt(num)):
         if num % i == 0:
@@ -61,7 +59,7 @@ def main():
         if isPandigital(i):
             if isPrime(i):
                 print(i)
-        i -= 1
+        i -= 2
 
 main()
 
