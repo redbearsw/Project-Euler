@@ -67,4 +67,3 @@ main()
 
 
 print(isPermutation(987654321))
-print(isPermutation(98765))
