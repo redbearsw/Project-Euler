@@ -1,10 +1,12 @@
 <html>
 <header>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <style>
     body {
-      background-color: #b7d5ec;
+      background-color: #d7e7f4;
       font-size: 16pt;
-      color: #051e32;
     }
     a {
       text-decoration: none;
@@ -30,6 +32,18 @@
       width: 650px;
       margin: auto;
     }
+    .far, .fas, .fab {
+      font-size: 48px;
+    }
+    .far.orange, .fas.orange, .fab.orange {  
+      color: #a8640b;
+    }
+    .far.blue, .fas.blue, .fab.blue {
+      color: #153751;
+    }
+    .far:hover, .fas:hover, .fab:hover {
+      color: #6b6bbf;
+    }
 
   </style> 
 </header>
@@ -38,32 +52,33 @@
   <div class="row">
     <div class="column">
       <div class="links">
-        <h2>School</h2>
         <p>
-        <a href="https://canvas.uchicago.edu">Canvas</a>
+        <a href="https://inbox.google.com"><i class="far fa-envelope orange"></i></a>
         <p>
+        <a href="https://calendar.google.com"><i class="fas fa-calendar-alt blue"></i></a>
+        <p>
+        <a href="https://keep.google.com"><i class="far fa-lightbulb orange"></i></a> </p>
       </div>
     </div>
     <div class="column">
       <div class="links">
-        <h2>Productivity</h2>
         <p>
-        <a href="https://calendar.google.com">Calendar</a>
+        <a href="https://online.citi.com"><i class="fas fa-piggy-bank blue"></i></a></p>
         <p>
-        <a href="https://youneedabudget.com">YNAB</a> </p>
+        <a href="https://youneedabudget.com"><i class="far fa-money-bill-alt orange"></i></a> </p>
         <p>
-        <a href="https://keep.google.com">Keep</a> </p>
+        <a href="https://americanexpress.com"><i class="fab fa-cc-amex blue"></i></a>
       </div>
 
     </div>
     <div class="column">
       <div class="links">
-        <h2>Fun</h2>
         <p>
-        <a href="https://xkcd.com">xkcd</a> </p>
+        <a href="https://messenger.com"><i class="fab fa-facebook-messenger orange"></i></a>
         <p>
-        <a href="https://messenger.com">Messenger</a> </p>
+        <a href="https://my.uchicago.edu"><i class="fas fa-graduation-cap blue"></i></a>
         <p>
+        <a href="https://canvas.uchicago.edu"><i class="fas fa-chalkboard-teacher orange"></i></a>
       </div>
     </div>
   </div>

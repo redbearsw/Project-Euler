@@ -12,16 +12,16 @@ import math
 
 # function that takes in n and makes a list of pandigital permutations in descending
 # lexographic order
-def permute(n):
-    permutations = []
-    currPerm = []
+# def permute(n):
+#     permutations = []
+#     currPerm = []
 
-    # holds digits still available, in descending order
-    availDig = []
-    for i in range(1, n):
-        availDig.append(n + 1 - i)
+#     # holds digits still available, in descending order
+#     availDig = []
+#     for i in range(1, n):
+#         availDig.append(n + 1 - i)
 
-    currPerm = []
+#     currPerm = []
 
 # checks if a number is pandigital
 def isPandigital(num):
@@ -67,4 +67,3 @@ main()
 
 
 print(isPermutation(987654321))
-print(isPermutation(98765))
