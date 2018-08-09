@@ -1,3 +1,16 @@
 body {
-  background: #4d4049
+  background-color: #4d4049;
+  color: #f3f1f3;
+}
+
+h1 {
+  font-family: 'Lora', sans-serif;
+}
+
+h2 {
+  font-family: 'Lora', sans-serif;
+}
+
+.about-text {
+  font-family: 'Lato', serif;
 }
