@@ -1,16 +1,44 @@
+* {
+  margin: 0;
+}
+
 body {
   background-color: #4d4049;
   color: #f3f1f3;
+  margin: 0;
 }
 
 h1 {
-  font-family: 'Lora', sans-serif;
+  font-family: 'Lora', serif;
+  font-size: 40pt;
+  text-align: center;
 }
 
 h2 {
-  font-family: 'Lora', sans-serif;
+  font-family: 'Lora', serif;
+  font-size: 30pt;
+  padding-bottom: 10px;
+}
+
+.about {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 15px;
 }
 
 .about-text {
-  font-family: 'Lato', serif;
+  font-family: 'Martel', sans-serif;
+  font-size: 12pt;
+  margin: auto;
+  text-align: center;
+  width: 700px;
+  padding-top: 0px;
+}
+
+#title {
+  padding-bottom: 25px;
+}
+
+a {
+  color: #ffdb4d;
 }
