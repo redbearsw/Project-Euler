@@ -19,8 +19,9 @@ def sumPropDiv(num):
 def listAbund(limit):
     abundNums = []
     for i in range(1, limit):
-        if(sumPropDiv(i) == i):
+        if (sumPropDiv(i) > i):
             abundNums.append(i)
+            print("appending", i)
 
     return abundNums
 
@@ -30,13 +31,14 @@ def listSumOfAbund(abundNums):
     i = 0
     length = len(abundNums)
     for i in range(length):
-        k = i
-        for j in range(k, length):
+        for j in range(i, length):
             sums.append(abundNums[i] + abundNums[j])
+            print("summing", i, j)
     return sums
 
 # find sum of all numbers that can't be written as sum of two abundant numbers
 def sumNonSums(abundNums, limit):
+    print("summingNonSums")
     sum = 0
     for i in range(limit):
         if (not (i in abundNums)):
