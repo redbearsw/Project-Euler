@@ -9,14 +9,16 @@ body {
 }
 
 h1 {
-  font-family: 'Lora', serif;
-  font-size: 40pt;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 400;
+  font-size: 35pt;
   text-align: center;
 }
 
 h2 {
-  font-family: 'Lora', serif;
-  font-size: 30pt;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 300;
+  font-size: 25pt;
   padding-bottom: 10px;
 }
 
@@ -27,11 +29,12 @@ h2 {
 }
 
 .about-text {
-  font-family: 'Martel', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
   font-size: 12pt;
   margin: auto;
-  text-align: center;
-  width: 700px;
+  text-align: left;
+  width: 600px;
   padding-top: 0px;
 }
 
