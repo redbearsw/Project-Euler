@@ -45,16 +45,18 @@ h2 {
 a {
   color: #ffdb4d;
   font-weight: bold;
+  text-decoration: none;
 }
 
 #corner-icons {
   float: right;
+  padding-right: 10px;
 }
 
 .fab, .fas {
   font-size: 36px;
   color: #ffdb4d;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 a:hover, .fab:hover, .fas:hover {
