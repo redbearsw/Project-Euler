@@ -43,6 +43,7 @@ class Day3 {
     // add wires
     int i;
     int j;
+    int k;
     int currX = 0;
     int currY = 0;
     int len = inputs.size();
@@ -52,13 +53,21 @@ class Day3 {
       int num = Integer.parseInt(instr.substring(1));
 
       if (firstChar == 'U') {
-        for (j = currY + 1; j <= currY + num; j++)
+        for (j = currY + 1; j <= currY + num; j++) {
           try {
             grid.get(j);
           } catch (IndexOutOfBoundsException e) {
-            grid.set(j, new ArrayList<String>());
+            grid.add(new ArrayList<String>());
+          }
+          for (k = 0; k <= currX; k++) {
+            try {
+              grid.get(j).get(k);
+            } catch (IndexOutOfBoundsException e) {
+              grid.get(j).add(".");
+            }
           }
           grid.get(j).set(currX, "-");
+        }
 
         currY = currY + num;
       }
@@ -67,7 +76,7 @@ class Day3 {
           try {
             grid.get(currY).get(j);
           } catch (IndexOutOfBoundsException e) {
-            grid.get(currY).add("-");
+            grid.get(currY).add(".");
           }
           grid.get(currY).set(j, "-");
         }
@@ -78,7 +87,7 @@ class Day3 {
           try {
             grid.get(currY).get(j);
           } catch (IndexOutOfBoundsException e) {
-            grid.get(currY).add("-");
+            grid.get(currY).add(".");
           }
           grid.get(currY).set(j, "-");
         }
@@ -89,7 +98,14 @@ class Day3 {
           try {
             grid.get(j);
           } catch (IndexOutOfBoundsException e) {
-            grid.set(j, new ArrayList<String>());
+            grid.add(new ArrayList<String>());
+          }
+          for (k = 0; k <= currX; k++) {
+            try {
+              grid.get(j).get(k);
+            } catch (IndexOutOfBoundsException e) {
+              grid.get(j).add(".");
+            }
           }
           grid.get(j).set(currX, "-");
 
