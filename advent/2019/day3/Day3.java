@@ -3,13 +3,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
+import java.util.List;
 
 class Day3 {
 
   public static ArrayList<ArrayList<String>> readInput(String name) {
     String line;
     ArrayList<ArrayList<String>> inputs = new ArrayList<ArrayList<String>>();
-    ArrayList<String> path = new ArrayList<String>();
+    ArrayList<String> path;
     
     // Read in file to integer array
     try {
@@ -17,7 +18,8 @@ class Day3 {
       Scanner sc = new Scanner(file);
       
       while (sc.hasNextLine()) {
-
+        
+        path = new ArrayList<String>();
         line = sc.nextLine();
         StringTokenizer tok = new StringTokenizer(line, ",");
 
@@ -30,7 +32,7 @@ class Day3 {
     catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-
+    
     return inputs;
   }
 
@@ -118,25 +120,68 @@ class Day3 {
     return grid;
   }
 
+  public static int min(int a, int b) {
+    if (a < b)
+      return a;
+    else
+      return b;
+  }
+
+  public static ArrayList<Tuple> intersect(ArrayList<ArrayList<String>> firstGrid, ArrayList<ArrayList<String>> secondGrid) {
+    ArrayList<Tuple> isects = new ArrayList<Tuple>();
+    int i;
+    int j;
+
+    // len1 is set to the minimum of the two grids bc they can't intersect past that
+    int len1;
+    int len2;
+    int lenFirst = firstGrid.size();
+    int lenSec = secondGrid.size();
+
+    len1 = min(lenFirst, lenSec);
+    
+    for (i = 0; i < len1; i++) {
+
+      lenFirst = firstGrid.get(i).size();
+      lenSec = secondGrid.get(i).size();
+      len2 = min(lenFirst, lenSec);
+
+      for (j = 0; j < len2; j++)
+        if (firstGrid.get(i).get(j) == "-" && secondGrid.get(i).get(j) == "-")
+          isects.add(new Tuple<Integer, Integer>(i, j));
+    }
+
+    return isects;
+  }
+
   public static int part1(String name) {
     // read inputs
     ArrayList<ArrayList<String>> inputs = readInput(name);
 
     // create grids from inputs
     ArrayList<ArrayList<String>> firstGrid = buildGrid(inputs.get(0));
-    System.out.println(firstGrid);
+    ArrayList<ArrayList<String>> secondGrid = buildGrid(inputs.get(1));
 
     // search grids and list intersections
+    ArrayList<Tuple> isects = intersect(firstGrid, secondGrid);
 
     // find manhattan distance from port to each intersection
+    int i;
+    int len = isects.size();
+    int dist;
+    Tuple<Integer, Integer> coord = isects.get(0);
+    int currMin = coord.getX() + coord.getY();
+    for (i = 1; i < len; i++) {
+      coord = isects.get(i);
+      dist = coord.getX() + coord.getY();
+      currMin = min (dist, currMin);
+    }
 
-    // return smallest distance
-
-    return 0;
+    return currMin;
   }
 
   public static void main(String[] args) {
-    System.out.println("Part 1: " + part1("test.txt"));
+    System.out.println("Part 1: " + part1("input.txt"));
   }
 }
 
